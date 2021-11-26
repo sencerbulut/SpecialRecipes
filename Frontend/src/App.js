@@ -26,5 +26,5 @@ function App() {
     </>
   );
 }
-
+console.log("deneme")
 export default App;
