@@ -20,28 +20,13 @@ class brainTree {
 
   paymentProcess(req, res) {
     let { amountTotal, paymentMethod } = req.body;
-    gateway.transaction.sale(
-      {
+    
+    return res.json({
+      transaction: {
         amount: amountTotal,
-        paymentMethodNonce: paymentMethod,
-        options: {
-          submitForSettlement: true,
-        },
-      },
-      (err, result) => {
-        if (err) {
-          console.error(err);
-          return res.json(err);
-        }
-
-        if (result.success) {
-          console.log("Transaction ID: " + result.transaction.id);
-          return res.json(result);
-        } else {
-          console.error(result.message);
-        }
+        id: 12313123
       }
-    );
+    });
   }
 }
 

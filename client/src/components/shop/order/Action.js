@@ -44,28 +44,27 @@ export const pay = async (
     setState({ ...state, error: "Please provide your address" });
   } else if (!state.phone) {
     setState({ ...state, error: "Please provide your phone number" });
-  } else {
-    let nonce;
-    let getNonce = state.instance
-      .requestPaymentMethod()
-      .then((data) => {
+  } else if (!state.credit) {
+    setState({ ...state, error: "Please provide your credit number" });
+  }  else {
         dispatch({ type: "loading", payload: true });
-        nonce = data.nonce;
         let paymentData = {
-          amountTotal: totalCost(),
-          paymentMethod: nonce,
+          amountTotal: totalCost()
         };
         getPaymentProcess(paymentData)
           .then(async (res) => {
             if (res) {
+              console.log(state)
               let orderData = {
                 allProduct: JSON.parse(localStorage.getItem("cart")),
                 user: JSON.parse(localStorage.getItem("jwt")).user._id,
-                amount: res.transaction.amount,
-                transactionId: res.transaction.id,
+                amount: totalCost(),
+                transactionId: 123123,
                 address: state.address,
                 phone: state.phone,
+                credit: state.credit
               };
+              console.log(orderData)
               try {
                 let resposeData = await createOrder(orderData);
                 if (resposeData.success) {
@@ -87,10 +86,5 @@ export const pay = async (
           .catch((err) => {
             console.log(err);
           });
-      })
-      .catch((error) => {
-        console.log(error);
-        setState({ ...state, error: error.message });
-      });
   }
 };

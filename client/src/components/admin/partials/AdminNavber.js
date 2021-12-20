@@ -40,7 +40,7 @@ const AdminNavber = (props) => {
             style={{ letterSpacing: "0.70rem" }}
             className="flex items-left text-center font-bold uppercase text-gray-800 text-2xl cursor-pointer px-2 text-center"
           >
-            Special Recipes
+            SpecialRecipes
           </span>
         </div>
         {/* Small Screen Show */}
@@ -65,12 +65,12 @@ const AdminNavber = (props) => {
             style={{ letterSpacing: "0.10rem" }}
             className="flex items-left text-center font-bold uppercase text-gray-800 text-2xl cursor-pointer px-2 text-center"
           >
-            Special Recipes
+            SpecialRecipes
           </span>
         </div>
         {/* Both Screen show */}
         <div className="flex items-center">
-          {/* <div className="hover:bg-gray-200 rounded-lg p-2" title="Search">
+          <div className="hover:bg-gray-200 rounded-lg p-2" title="Search">
             <svg
               className="cursor-pointer w-8 h-8 text-gray-600 hover:text-gray-800"
               fill="none"
@@ -85,7 +85,7 @@ const AdminNavber = (props) => {
                 d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
               />
             </svg>
-          </div> */}
+          </div>
           <div className="hover:bg-gray-200 rounded-lg p-2" title="Search">
             <svg
               className="cursor-pointer w-8 h-8 text-gray-600 hover:text-gray-800"

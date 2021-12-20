@@ -30,6 +30,10 @@ const orderSchema = new mongoose.Schema(
       type: Number,
       required: true,
     },
+    credit: {
+      type: Number,
+      required: true,
+    },
     status: {
       type: String,
       default: "Not processed",
@@ -45,5 +49,5 @@ const orderSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const orderModel = mongoose.model("orders", orderSchema);
+const orderModel = mongoose.model("order", orderSchema);
 module.exports = orderModel;
